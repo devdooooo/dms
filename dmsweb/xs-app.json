@@ -1,0 +1,52 @@
+{
+  "welcomeFile": "/index.html",
+  "authenticationMethod": "route",
+  "routes": [
+    {
+      "source": "^/sfsf/(.*)$",
+      "destination": "LOTTE_SF",
+      "target": "$1",
+      "authenticationType": "none",
+      "csrfProtection": false
+    },
+    {
+      "source": "^/dmsnoauth/(.*)$",
+      "destination": "LOTTE_DMS_NOAUTH",
+      "target": "$1",
+      "authenticationType": "none",
+      "csrfProtection": false
+    },
+    {
+      "source": "^/dmsoauth2/(.*)$",
+      "destination": "LOTTE_DMS_OAUTH2",
+      "target": "$1",
+      "authenticationType": "none",
+      "csrfProtection": false
+    },
+    {
+      "source": "^/dmstoken/(.*)$",
+      "destination": "LOTTE_DMS_TOKEN",
+      "target": "$1",
+      "authenticationType": "none",
+      "csrfProtection": false
+    },
+    {
+      "source": "^(?:/app|/app/.*)?/resources/(.*)$",
+      "target": "/resources/$1",
+      "authenticationType": "none",
+      "destination": "ui5"
+    },
+    {
+      "source": "^(?:/app|/app/.*)?/test-resources/(.*)$",
+      "target": "/test-resources/$1",
+      "authenticationType": "none",
+      "destination": "ui5"
+    },
+    {
+      "source": "^(.*)$",
+      "target": "$1",
+      "service": "html5-apps-repo-rt",
+      "authenticationType": "xsuaa"
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+<mvc:View controllerName="dmsweb.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" displayBlock="true"
+    xmlns="sap.m" xmlns:u="sap.ui.unified">
+    <Page id="page" title="{i18n>title}">
+    <Panel>
+        <VBox>
+            <HBox>
+                <u:FileUploader
+                    id="fileUploader"
+                    name="myFileUpload"
+                    width="400px"
+                    change="handleValueChange"/>
+                <Button text="Upload" type="Emphasized" press="pressUpload"/>
+            </HBox>
+            <Button
+                text="Get Directory Token" type="Emphasized"
+                press="pressGetDirectory"/>
+            <Button
+                text="Get Directory oauth2" type="Emphasized"
+                press="pressGetDirectory2"/>
+            <List
+                headerText="File List"
+                items="{path: '/filelist'}" >
+                <StandardListItem title="{filename/}"/>
+            </List>
+            <Button
+                text="Download File" type="Emphasized"
+                press="pressDownloadFile"/>
+            <core:HTML content="{/download}"/>
+            <HBox>
+                <Input type="Text" value="{/fileinfo/orgFileName}" width="300px" />
+                <Link text="sap.jpg" press="pressDownload" />
+            </HBox>
+        </VBox>
+    </Panel>
+    </Page>
+</mvc:View>
